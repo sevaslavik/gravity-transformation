@@ -1,3 +1,23 @@
+/*Fonts*/
+
+@font-face {
+    font-family: 'droid_serifbold';
+    src: url('../fonts/droidserif-bold-webfont.woff2') format('woff2'),
+         url('../fonts/droidserif-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'droid_serifregular';
+    src: url('../fonts/droidserif-regular-webfont.woff2') format('woff2'),
+         url('../fonts/droidserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*General styles*/
 
 * {
@@ -8,17 +28,18 @@
 
 body {
 	margin: 0;
-	font-style: Droid Serif;
+	font-family: 'droid_serifregular';
 	background-color: #eaeaea;
 }
 
 img {
-	display: inline-block;
-	width: 100%;
+	max-width: 100%;
 }
 
 h3 {
+	max-width: 100%;
 	margin: 20px 0;
+	font-family: 'droid_serifbold';
 }
 
 p {
@@ -81,15 +102,19 @@ li {
 }
 
 .content__container {
+	max-width: 100%;
+}
 
+.content__description {
+	display: none;
 }
 
 .learn-more {
-	display: flex;
+	display: none;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	width: 40%;
+	min-width: 40%;
 	margin: 25px auto;
 	text-decoration: none;
 	padding: 20px 0;
@@ -100,18 +125,38 @@ li {
 
 .learn-more__text {
 	margin-right: 10px;
+	font-family: 'droid_serifbold';
 	font-size: 18px;
 	font-weight: 700;
 }
 
 .rectangle {
+	max-width: 100%;
 	height: 21px;
 	background-color: #5a29b9;
 }
 
 .content__container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
 	padding-bottom: 40px;
 }
+
+.is-active {
+	display: block;
+}
+
+.link-active {
+	display: flex;
+}
+
+/*End styles of main*/
+
+/*Styles of footer*/
 
 .footer {
 	padding: 27px 0;
@@ -128,4 +173,89 @@ li {
 	background-color: #E6E6E6;
 }
 
-/*End styles of main*/
+/*End styles of footer*/
+
+/*media quarys*/
+
+@media screen and (max-width: 780px) {
+
+	h3 {
+		max-width: 95%;
+		padding-left: 36px
+	}
+
+	img {
+		max-width: 95%;
+	}
+
+	ul {
+		padding-left: 36px;
+	}
+
+	.header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header__logo {
+		margin: 20px auto;
+	}
+
+	.logout {
+		padding-bottom: 10px;
+	}
+
+	.header__description {
+		padding: 10px;
+		font-size: 18px;
+	}
+	/*This problem with content and its width in responsive version was solved using margin: 0;*/
+	.row {
+		margin: 0;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.main {
+		padding: 0;	
+	}
+
+	.main__title {
+		font-size: 22px;
+	}
+
+	.content__container {	
+		text-align: left;
+	}
+
+	.learn-more {
+		max-width: 80%;
+		margin: 25px 0 25px 36px;
+	}
+
+	.content__column {
+		max-width: 100%;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.rectangle {
+		max-width: 100%;
+	}
+	/*problem width footer solved with using padding-bottom: 100px;*/
+	.footer {
+		padding-top: 0;
+		padding-bottom: 100px;
+	}
+
+	.footer::before {
+	content: '';
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 34px;
+}
+}
+
+/*end media quarys*/
